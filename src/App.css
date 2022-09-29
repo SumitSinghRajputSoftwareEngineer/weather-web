@@ -1,38 +1,105 @@
-.App {
+*{
+  margin: 0;
+  padding: 0;
+}
+.App{
+  background-color: rgb(45, 54, 54);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+}
+
+.container{
+  height: 650px;
+  width: 400px;
+  background-image: url('./day.jpg');
+  background-repeat: no-repeat;
+  background-size: 110%;
+  border-radius: 10px;
+}
+
+main{
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.2),rgba(0,0,0,0.75));
+  height: 610px;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.container.night{
+  background-image: url('./night.jpg');
+}
+.container_searchbox{
+  display: grid;
+  align-items: center;
+}
+
+.container_searchbox > input{
+  border: 1px gray solid;
+  background-color: antiquewhite;
+  height: 30px;
+  border-radius: 5px;
+  padding-left: 10px;
+  outline: none;
+  transition: 0.4s ease;
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: 400;
+
+}
+
+.container_searchbox >input:focus{
+  background-color: white;
+}
+
+.location_box .location{
+  color: white;
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 3px 3px rgba(50,50,70,0.5);
+}
+
+.location_box .date{
+  color: #fff;
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
+  text-shadow: 2px 2px rgba(50,50,70,0.5);
+}
+
+.weather_box{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.weather_box .temp{
+  position: relative;
+  display: inline-block;
+  margin: 20px auto;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 15px 25px;
+  color: #fff;
+  font-size: 100px;
+  font-weight: 800;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  text-shadow: 3px 6px rgba(50,50,70,0.5);
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-.App-link {
-  color: #61dafb;
+.min_max{
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.weather_box .weather{
+  color: #fff;
+  font-size: 40px;
+  font-weight: 600;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
 }
