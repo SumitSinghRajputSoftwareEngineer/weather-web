@@ -1,6 +1,12 @@
 import { useState } from "react";
 import "./App.css";
 import day from "./day.jpg";
+import rain from './rain.png';
+import sun from './sun.png';
+import haze from './haze.png';
+import fog from './fog.png';
+import cloud from './cloud.png';
+import mist from './mist.png';
 
 const api = {
   key: "3bc9b9853bd5a5e850d1cf912b499de0"
@@ -8,8 +14,6 @@ const api = {
 function App() {
   const [state, setState] = useState("");
   const [weather, setWeather] = useState({});
-  // ${api.base}weather?q=${state}&units=mteric&APPID=${api.key}
-  // https://api.openweathermap.org/data/2.5/weather?q=${state}&appid=${api.key}
   const search = (e) => {
     if (e.key === "Enter") {
       fetch(`https://api.openweathermap.org/data/2.5/weather?q=${state}&appid=${api.key}`)
@@ -54,7 +58,27 @@ function App() {
 
     return `${day} ${date} ${month} ${year}`;
   };
-  
+  let weatherIcon = ()=>{
+    let w = weather.weather[0].main;
+    if(w==="Clouds"){
+      return cloud;
+    }
+    else if(w==="Haze"){
+      return haze;
+    }
+    else if(w==="Rain"){
+      return rain;
+    }
+    else if(w==="Fog"){
+      return fog;
+    }
+    else if(w==="Mist"){
+      return mist;
+    }
+    else{
+      return sun;
+    }
+  }
   return (
     <div className="App">
       <div className="container">
@@ -80,7 +104,7 @@ function App() {
             <div className="temp">{Math.round(weather.main.temp - 273)} °C</div>
             <div className="min_max">Min Temp: {Math.round(weather.main.temp_min -273)}°C  Max Temp: {Math.round(weather.main.temp_max -273)}°C</div>
             <div className="weather">{weather.weather[0].main}</div>
-            <div className="weather_logo"></div>
+            <div className="weather_logo"><img src={weatherIcon()} alt="weather logo"/></div>
           </div>
             </div>
           ):('')}
@@ -90,5 +114,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
