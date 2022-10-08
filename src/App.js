@@ -7,7 +7,7 @@ import haze from './haze.png';
 import fog from './fog.png';
 import cloud from './cloud.png';
 import mist from './mist.png';
-
+import drizzle from './drizzle.png';
 const api = {
   key: "3bc9b9853bd5a5e850d1cf912b499de0"
 };
@@ -74,6 +74,9 @@ function App() {
     }
     else if(w==="Mist"){
       return mist;
+    }
+    else if(w==="Drizzle"){
+      return drizzle;
     }
     else{
       return sun;
